@@ -8,11 +8,11 @@ class Admin extends CI_Controller
       $data['user'] = $this->Model_user->view_user()->row_array();
       $data['menu'] = $this->Model_menu->getMenu();
 
-      $this->load->view('templates/user_header.php', $data);
-      $this->load->view('templates/user_sidebar.php', $data);
-      $this->load->view('templates/user_topbar.php', $data);
+      $this->load->view('templates/user_header', $data);
+      $this->load->view('templates/user_sidebar', $data);
+      $this->load->view('templates/user_topbar', $data);
       $this->load->view('admin/index', $data);
-      $this->load->view('templates/user_footer.php');
+      $this->load->view('templates/user_footer');
    }
 
    public function role()
@@ -26,11 +26,11 @@ class Admin extends CI_Controller
       $data['menu'] = $this->Model_menu->getMenu();
 
       if ($this->form_validation->run() == false) {
-         $this->load->view('templates/user_header.php', $data);
-         $this->load->view('templates/user_sidebar.php', $data);
-         $this->load->view('templates/user_topbar.php', $data);
+         $this->load->view('templates/user_header', $data);
+         $this->load->view('templates/user_sidebar', $data);
+         $this->load->view('templates/user_topbar', $data);
          $this->load->view('admin/role', $data);
-         $this->load->view('templates/user_footer.php');
+         $this->load->view('templates/user_footer');
       } else {
          $data = [
             'role' => $this->input->post('role')
@@ -54,11 +54,11 @@ class Admin extends CI_Controller
 
       $data['menu'] = $this->Model_menu->getMenu();
 
-      $this->load->view('templates/user_header.php', $data);
-      $this->load->view('templates/user_sidebar.php', $data);
-      $this->load->view('templates/user_topbar.php', $data);
+      $this->load->view('templates/user_header', $data);
+      $this->load->view('templates/user_sidebar', $data);
+      $this->load->view('templates/user_topbar', $data);
       $this->load->view('admin/roleAccess', $data);
-      $this->load->view('templates/user_footer.php');
+      $this->load->view('templates/user_footer');
    }
 
    public function changeAccess()

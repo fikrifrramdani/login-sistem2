@@ -8,11 +8,11 @@ class User extends CI_Controller
         $data['user'] = $this->Model_user->view_user()->row_array();
 
         $data['menu'] = $this->Model_menu->getMenu();
-        $this->load->view('templates/user_header.php', $data);
-        $this->load->view('templates/user_sidebar.php', $data);
-        $this->load->view('templates/user_topbar.php', $data);
+        $this->load->view('templates/user_header', $data);
+        $this->load->view('templates/user_sidebar', $data);
+        $this->load->view('templates/user_topbar', $data);
         $this->load->view('user/index', $data);
-        $this->load->view('templates/user_footer.php');
+        $this->load->view('templates/user_footer');
     }
 
     public function edit()
@@ -24,11 +24,11 @@ class User extends CI_Controller
 
         $data['menu'] = $this->Model_menu->getMenu();
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/user_header.php', $data);
-            $this->load->view('templates/user_sidebar.php', $data);
-            $this->load->view('templates/user_topbar.php', $data);
+            $this->load->view('templates/user_header', $data);
+            $this->load->view('templates/user_sidebar', $data);
+            $this->load->view('templates/user_topbar', $data);
             $this->load->view('user/edit', $data);
-            $this->load->view('templates/user_footer.php');
+            $this->load->view('templates/user_footer');
         } else {
             $name = $this->input->post('name');
             $email = $this->input->post('email');
@@ -75,11 +75,11 @@ class User extends CI_Controller
         $this->form_validation->set_rules('newPassword', 'New Password', 'required|trim|min_length[4]');
         $this->form_validation->set_rules('repeatPassword', 'Repeat Password', 'required|trim|matches[newPassword]');
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/user_header.php', $data);
-            $this->load->view('templates/user_sidebar.php', $data);
-            $this->load->view('templates/user_topbar.php', $data);
+            $this->load->view('templates/user_header', $data);
+            $this->load->view('templates/user_sidebar', $data);
+            $this->load->view('templates/user_topbar', $data);
             $this->load->view('user/changePassword', $data);
-            $this->load->view('templates/user_footer.php');
+            $this->load->view('templates/user_footer');
         } else {
             $currentPassword = $this->input->post('currentPassword');
             if (!password_verify($currentPassword, $data['user']['password'])) {
