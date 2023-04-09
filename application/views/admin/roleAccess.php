@@ -37,7 +37,6 @@
                                         <td>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="defaultCheck" <?= check_access($role['id'], $m['id']); ?> data-role="<?= $role['id']; ?>" \ data-menu="<?= $m['id']; ?>">
-
                                             </div>
                                         </td>
                                     </tr>
